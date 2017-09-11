@@ -41,7 +41,7 @@ client.messages.create({
 });
 
 
-   // res.status(200).json({msg: 'this is working'})
+   res.status(200).json({msg: 'this is working'})
 })
 
 
