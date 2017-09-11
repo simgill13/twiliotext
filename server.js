@@ -17,7 +17,31 @@ const {PORT, DATABASE_URL} = require('./config');
 
 app.post('/textmsg', (req, res) => {
  console.log('=================HIT==============')
-   res.status(200).json({msg: 'this is working'})
+ console.log(req.body.text)
+
+
+ var string = req.body.text
+
+
+
+
+
+var accountSid = 'AC930c602a19415f6adcfd5ea6b65e0aa1'; 
+var authToken = 'b746baf812b466659e94d45e638836f3'; 
+ 
+//require the Twilio module and create a REST client 
+var client = require('twilio')(accountSid, authToken); 
+ 
+client.messages.create({ 
+    to: "+14086130163", 
+    from: "+18312788173", 
+    body: string , 
+}, function(err, message) { 
+    console.log(message.sid); 
+});
+
+
+   // res.status(200).json({msg: 'this is working'})
 })
 
 
